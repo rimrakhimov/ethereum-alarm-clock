@@ -4,12 +4,21 @@ import "contracts/Library/RequestLib.sol";
 import "contracts/Library/RequestScheduleLib.sol";
 import "contracts/Interface/TransactionRequestInterface.sol";
 
+import "openzeppelin-solidity/contracts/lifecycle/Pausable.sol";
+
 contract TransactionRequestCore is TransactionRequestInterface {
     using RequestLib for RequestLib.Request;
     using RequestScheduleLib for RequestScheduleLib.ExecutionWindow;
 
     RequestLib.Request txnRequest;
     bool private initialized = false;
+
+    address public factory;
+
+    modifier whenFactoryNotPaused() {
+        require(Pausable(factory).paused() == false);
+        _;
+    }
 
     /*
      *  addressArgs[0] - meta.createdBy
@@ -33,12 +42,14 @@ contract TransactionRequestCore is TransactionRequestInterface {
     function initialize(
         address[4]  addressArgs,
         uint[12]    uintArgs,
-        bytes       callData
+        bytes       callData,
+        address     requestFactory
     )
         public payable
     {
         require(!initialized);
 
+        factory = requestFactory;
         txnRequest.initialize(addressArgs, uintArgs, callData);
         initialized = true;
     }
@@ -52,7 +63,7 @@ contract TransactionRequestCore is TransactionRequestInterface {
     /*
      *  Actions
      */
-    function execute() public returns (bool) {
+    function execute() whenFactoryNotPaused public returns (bool) {
         return txnRequest.execute();
     }
 
@@ -60,7 +71,7 @@ contract TransactionRequestCore is TransactionRequestInterface {
         return txnRequest.cancel();
     }
 
-    function claim() public payable returns (bool) {
+    function claim() whenFactoryNotPaused public payable returns (bool) {
         return txnRequest.claim();
     }
 

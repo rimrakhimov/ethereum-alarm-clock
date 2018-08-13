@@ -1,31 +1,31 @@
 {
   "contractName": "RequestMetaLib",
   "abi": [],
-  "bytecode": "0x604c602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f30073000000000000000000000000000000000000000030146080604052600080fd00a165627a7a723058205ba16d55d758ec0366c0495a72b5122c1437c2a3b1aa9ba94df063a9d2d3346b0029",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fd00a165627a7a723058205ba16d55d758ec0366c0495a72b5122c1437c2a3b1aa9ba94df063a9d2d3346b0029",
-  "sourceMap": "133:516:4:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
-  "deployedSourceMap": "133:516:4:-;;;;;;;;",
+  "bytecode": "0x604c602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f30073000000000000000000000000000000000000000030146080604052600080fd00a165627a7a723058204becdd5c81d33351dc653ceb9a7634d9551792aab8c25e0f6013c34916c65f700029",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fd00a165627a7a723058204becdd5c81d33351dc653ceb9a7634d9551792aab8c25e0f6013c34916c65f700029",
+  "sourceMap": "133:516:34:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
+  "deployedSourceMap": "133:516:34:-;;;;;;;;",
   "source": "pragma solidity 0.4.24;\n\n/**\n * @title RequestMetaLib\n * @dev Small library holding all the metadata about a TransactionRequest.\n */\nlibrary RequestMetaLib {\n\n    struct RequestMeta {\n        address owner;              /// The address that created this request.\n\n        address createdBy;          /// The address of the RequestFactory which created this request.\n\n        bool isCancelled;           /// Was the TransactionRequest cancelled?\n        \n        bool wasCalled;             /// Was the TransactionRequest called?\n\n        bool wasSuccessful;         /// Was the return value from the TransactionRequest execution successful?\n    }\n\n}\n",
-  "sourcePath": "/home/logan/Work/ethereum-alarm-clock/contracts/Library/RequestMetaLib.sol",
+  "sourcePath": "contracts/Library/RequestMetaLib.sol",
   "ast": {
-    "absolutePath": "/home/logan/Work/ethereum-alarm-clock/contracts/Library/RequestMetaLib.sol",
+    "absolutePath": "contracts/Library/RequestMetaLib.sol",
     "exportedSymbols": {
       "RequestMetaLib": [
-        464
+        6522
       ]
     },
-    "id": 465,
+    "id": 6523,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 452,
+        "id": 6510,
         "literals": [
           "solidity",
           "0.4",
           ".24"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:4"
+        "src": "0:23:34"
       },
       {
         "baseContracts": [],
@@ -33,24 +33,24 @@
         "contractKind": "library",
         "documentation": "@title RequestMetaLib\n@dev Small library holding all the metadata about a TransactionRequest.",
         "fullyImplemented": true,
-        "id": 464,
+        "id": 6522,
         "linearizedBaseContracts": [
-          464
+          6522
         ],
         "name": "RequestMetaLib",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "RequestMetaLib.RequestMeta",
-            "id": 463,
+            "id": 6521,
             "members": [
               {
                 "constant": false,
-                "id": 454,
+                "id": 6512,
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
-                "scope": 463,
-                "src": "192:13:4",
+                "scope": 6521,
+                "src": "192:13:34",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -58,10 +58,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 453,
+                  "id": 6511,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "192:7:4",
+                  "src": "192:7:34",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -72,11 +72,11 @@
               },
               {
                 "constant": false,
-                "id": 456,
+                "id": 6514,
                 "name": "createdBy",
                 "nodeType": "VariableDeclaration",
-                "scope": 463,
-                "src": "272:17:4",
+                "scope": 6521,
+                "src": "272:17:34",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -84,10 +84,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 455,
+                  "id": 6513,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "272:7:4",
+                  "src": "272:7:34",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -98,11 +98,11 @@
               },
               {
                 "constant": false,
-                "id": 458,
+                "id": 6516,
                 "name": "isCancelled",
                 "nodeType": "VariableDeclaration",
-                "scope": 463,
-                "src": "375:16:4",
+                "scope": 6521,
+                "src": "375:16:34",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -110,10 +110,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 457,
+                  "id": 6515,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "375:4:4",
+                  "src": "375:4:34",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -124,11 +124,11 @@
               },
               {
                 "constant": false,
-                "id": 460,
+                "id": 6518,
                 "name": "wasCalled",
                 "nodeType": "VariableDeclaration",
-                "scope": 463,
-                "src": "462:14:4",
+                "scope": 6521,
+                "src": "462:14:34",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -136,10 +136,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 459,
+                  "id": 6517,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "462:4:4",
+                  "src": "462:4:34",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -150,11 +150,11 @@
               },
               {
                 "constant": false,
-                "id": 462,
+                "id": 6520,
                 "name": "wasSuccessful",
                 "nodeType": "VariableDeclaration",
-                "scope": 463,
-                "src": "538:18:4",
+                "scope": 6521,
+                "src": "538:18:34",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -162,10 +162,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 461,
+                  "id": 6519,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "538:4:4",
+                  "src": "538:4:34",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -177,36 +177,36 @@
             ],
             "name": "RequestMeta",
             "nodeType": "StructDefinition",
-            "scope": 464,
-            "src": "163:483:4",
+            "scope": 6522,
+            "src": "163:483:34",
             "visibility": "public"
           }
         ],
-        "scope": 465,
-        "src": "133:516:4"
+        "scope": 6523,
+        "src": "133:516:34"
       }
     ],
-    "src": "0:650:4"
+    "src": "0:650:34"
   },
   "legacyAST": {
-    "absolutePath": "/home/logan/Work/ethereum-alarm-clock/contracts/Library/RequestMetaLib.sol",
+    "absolutePath": "contracts/Library/RequestMetaLib.sol",
     "exportedSymbols": {
       "RequestMetaLib": [
-        464
+        6522
       ]
     },
-    "id": 465,
+    "id": 6523,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 452,
+        "id": 6510,
         "literals": [
           "solidity",
           "0.4",
           ".24"
         ],
         "nodeType": "PragmaDirective",
-        "src": "0:23:4"
+        "src": "0:23:34"
       },
       {
         "baseContracts": [],
@@ -214,24 +214,24 @@
         "contractKind": "library",
         "documentation": "@title RequestMetaLib\n@dev Small library holding all the metadata about a TransactionRequest.",
         "fullyImplemented": true,
-        "id": 464,
+        "id": 6522,
         "linearizedBaseContracts": [
-          464
+          6522
         ],
         "name": "RequestMetaLib",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "RequestMetaLib.RequestMeta",
-            "id": 463,
+            "id": 6521,
             "members": [
               {
                 "constant": false,
-                "id": 454,
+                "id": 6512,
                 "name": "owner",
                 "nodeType": "VariableDeclaration",
-                "scope": 463,
-                "src": "192:13:4",
+                "scope": 6521,
+                "src": "192:13:34",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -239,10 +239,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 453,
+                  "id": 6511,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "192:7:4",
+                  "src": "192:7:34",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -253,11 +253,11 @@
               },
               {
                 "constant": false,
-                "id": 456,
+                "id": 6514,
                 "name": "createdBy",
                 "nodeType": "VariableDeclaration",
-                "scope": 463,
-                "src": "272:17:4",
+                "scope": 6521,
+                "src": "272:17:34",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -265,10 +265,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 455,
+                  "id": 6513,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "272:7:4",
+                  "src": "272:7:34",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -279,11 +279,11 @@
               },
               {
                 "constant": false,
-                "id": 458,
+                "id": 6516,
                 "name": "isCancelled",
                 "nodeType": "VariableDeclaration",
-                "scope": 463,
-                "src": "375:16:4",
+                "scope": 6521,
+                "src": "375:16:34",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -291,10 +291,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 457,
+                  "id": 6515,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "375:4:4",
+                  "src": "375:4:34",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -305,11 +305,11 @@
               },
               {
                 "constant": false,
-                "id": 460,
+                "id": 6518,
                 "name": "wasCalled",
                 "nodeType": "VariableDeclaration",
-                "scope": 463,
-                "src": "462:14:4",
+                "scope": 6521,
+                "src": "462:14:34",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -317,10 +317,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 459,
+                  "id": 6517,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "462:4:4",
+                  "src": "462:4:34",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -331,11 +331,11 @@
               },
               {
                 "constant": false,
-                "id": 462,
+                "id": 6520,
                 "name": "wasSuccessful",
                 "nodeType": "VariableDeclaration",
-                "scope": 463,
-                "src": "538:18:4",
+                "scope": 6521,
+                "src": "538:18:34",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -343,10 +343,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 461,
+                  "id": 6519,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "538:4:4",
+                  "src": "538:4:34",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -358,16 +358,16 @@
             ],
             "name": "RequestMeta",
             "nodeType": "StructDefinition",
-            "scope": 464,
-            "src": "163:483:4",
+            "scope": 6522,
+            "src": "163:483:34",
             "visibility": "public"
           }
         ],
-        "scope": 465,
-        "src": "133:516:4"
+        "scope": 6523,
+        "src": "133:516:34"
       }
     ],
-    "src": "0:650:4"
+    "src": "0:650:34"
   },
   "compiler": {
     "name": "solc",
@@ -394,5 +394,5 @@
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-06T13:59:53.181Z"
+  "updatedAt": "2018-08-13T11:09:09.638Z"
 }

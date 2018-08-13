@@ -71,7 +71,8 @@ contract RequestFactory is RequestFactoryInterface, CloneFactory, Pausable {
                 _addressArgs[2]   // txnData.toAddress
             ],
             _uintArgs,            //uint[12]
-            _callData
+            _callData,
+            address(this)
         );
 
         // Track the address locally
