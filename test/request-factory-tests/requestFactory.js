@@ -2,7 +2,7 @@ require("chai")
   .use(require("chai-as-promised"))
   .should()
 
-const { expect } = require("chai")
+const { assert, expect } = require("chai")
 
 // Contracts
 const RequestFactory = artifacts.require("./RequestFactory.sol")
