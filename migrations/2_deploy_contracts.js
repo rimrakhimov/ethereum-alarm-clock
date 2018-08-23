@@ -18,9 +18,16 @@ const TimestampScheduler = artifacts.require("./TimestampScheduler.sol")
 const TransactionRequestCore = artifacts.require("./TransactionRequestCore.sol")
 const TransactionRecorder = artifacts.require("./TransactionRecorder.sol")
 
+const MultiSigAddress = '0x47863b9E8C590323768E4352A78Ca759BBd37E8B';
+
 module.exports = (deployer, network) => {
   console.log(`${"-".repeat(30)}
 NOW DEPLOYING THE ETHEREUM ALARM CLOCK CONTRACTS...\n`)
+
+  let balanceBefore;
+  web3.eth.getBalance("0xD593A23b099e85AE97CAB1b5a645959211B03277", (err, res) => {
+    balanceBefore = res;
+  })
 
   deployer.deploy(MathLib, { gas: 250000 })
     .then(() => deployer.deploy(IterTools, { gas: 250000 }))
@@ -75,6 +82,7 @@ NOW DEPLOYING THE ETHEREUM ALARM CLOCK CONTRACTS...\n`)
       deployer.link(SafeMath, RequestFactory)
       return deployer.deploy(RequestFactory, TransactionRequestCore.address, { gas: 1900000 })
     })
+    .then(requestFactory => requestFactory.transferOwnership(MultiSigAddress))
     .then(() => {
       deployer.link(RequestScheduleLib, BaseScheduler)
       deployer.link(PaymentLib, BaseScheduler)
@@ -92,7 +100,7 @@ NOW DEPLOYING THE ETHEREUM ALARM CLOCK CONTRACTS...\n`)
       return deployer.deploy(
         BlockScheduler,
         RequestFactory.address,
-        0xecc9c5fff8937578141592e7E62C2D2E364311b8,
+        MultiSigAddress,
         { gas: 1500000 }
       )
     })
@@ -105,7 +113,7 @@ NOW DEPLOYING THE ETHEREUM ALARM CLOCK CONTRACTS...\n`)
       return deployer.deploy(
         TimestampScheduler,
         RequestFactory.address,
-        0xecc9c5fff8937578141592e7E62C2D2E364311b8,
+        MultiSigAddress,
         { gas: 1500000 }
       )
     })
@@ -128,7 +136,6 @@ NOW DEPLOYING THE ETHEREUM ALARM CLOCK CONTRACTS...\n`)
         transactionRequestCore: TransactionRequestCore.address,
         transactionRecorder: TransactionRecorder.address
       }
-
       if (network && network !== "development") {
         const contractsFile = `${network}.json`
         const contractsInfoFile = `${network}.info`
@@ -139,6 +146,18 @@ NOW DEPLOYING THE ETHEREUM ALARM CLOCK CONTRACTS...\n`)
         Object.keys(contracts).forEach((key) => {
           fs.appendFileSync(contractsInfoFile, `${key}, ${contracts[key]}\n`)
         })
+
+        let balanceAfter;
+        web3.eth.getBalance("0xD593A23b099e85AE97CAB1b5a645959211B03277", (e, r) => {
+          balanceAfter = r;
+          fs.writeFileSync('balances', `
+  balanceBefore: ${balanceBefore}
+  balanceAfter: ${balanceAfter}
+  `);
+        });
       }
     })
+    .then(() => RequestFactory.at(RequestFactory.address))
+    .then(requestFactory => requestFactory.owner())
+    .then(owner => console.log(owner))
 }

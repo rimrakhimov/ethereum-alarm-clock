@@ -12,11 +12,23 @@ module.exports = {
       port: 8545,
       network_id: "*" // Match any network id
     },
+    mainnet: {
+      gas: 4700000,
+      gasPrice: 1000000000, // 1 gwei
+      provider: () => new HDWalletProvider(mnemonic, "https://mainnet.infura.io"),
+      network_id: "1",
+    },
     kovan: {
       gas: 4700000,
       gasPrice: 1000000000, // 1 gwei
       provider: () => new HDWalletProvider(mnemonic, "https://kovan.infura.io"),
       network_id: "42"
+    },
+    rinkeby: {
+      gas: 4700000,
+      gasPrice: 20000000000, // 20 gwei
+      provider: () => new HDWalletProvider(mnemonic, "https://rinkeby.infura.io"),
+      network_id: "4"
     },
     ropsten: {
       gas: 4700000,
@@ -24,11 +36,5 @@ module.exports = {
       provider: () => new HDWalletProvider(mnemonic, "https://ropsten.infura.io"),
       network_id: "3"
     },
-    rinkeby: {
-      gas: 4700000,
-      gasPrice: 20000000000, // 20 gwei
-      provider: () => new HDWalletProvider(mnemonic, "https://rinkeby.infura.io"),
-      network_id: "4"
-    }
   }
 };
