@@ -82,7 +82,11 @@ NOW DEPLOYING THE ETHEREUM ALARM CLOCK CONTRACTS...\n`)
       deployer.link(PaymentLib, RequestFactory)
       deployer.link(RequestLib, RequestFactory)
       deployer.link(SafeMath, RequestFactory)
-      return deployer.deploy(RequestFactory, TransactionRequestCore.address, { gas: 1900000, overwrite })
+      return deployer.deploy(
+        RequestFactory,
+        TransactionRequestCore.address,
+        { gas: 1900000, overwrite }
+      )
     })
     // .then(requestFactory => requestFactory.transferOwnership(MultiSigAddress))
     .then(() => {
