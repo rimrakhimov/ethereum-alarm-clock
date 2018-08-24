@@ -20,34 +20,36 @@ const TransactionRecorder = artifacts.require("./TransactionRecorder.sol")
 
 const MultiSigAddress = '0x47863b9E8C590323768E4352A78Ca759BBd37E8B';
 
+const overwrite = false;
+
 module.exports = (deployer, network) => {
   console.log(`${"-".repeat(30)}
 NOW DEPLOYING THE ETHEREUM ALARM CLOCK CONTRACTS...\n`)
 
   let balanceBefore;
-  web3.eth.getBalance("0xD593A23b099e85AE97CAB1b5a645959211B03277", (err, res) => {
+  web3.eth.getBalance("0x21ec253c9186065f05fb3f541085a185f96a16ee", (err, res) => {
     balanceBefore = res;
   })
 
-  deployer.deploy(MathLib, { gas: 250000 })
-    .then(() => deployer.deploy(IterTools, { gas: 250000 }))
-    .then(() => deployer.deploy(ExecutionLib, { gas: 250000 }))
-    .then(() => deployer.deploy(RequestMetaLib, { gas: 250000 }))
-    .then(() => deployer.deploy(SafeMath, { gas: 250000 }))
+  deployer.deploy(MathLib, { gas: 250000, overwrite })
+    .then(() => deployer.deploy(IterTools, { gas: 250000, overwrite }))
+    .then(() => deployer.deploy(ExecutionLib, { gas: 250000, overwrite }))
+    .then(() => deployer.deploy(RequestMetaLib, { gas: 250000, overwrite }))
+    .then(() => deployer.deploy(SafeMath, { gas: 250000, overwrite }))
     .then(() => {
       deployer.link(SafeMath, ClaimLib)
 
-      return deployer.deploy(ClaimLib, { gas: 250000 })
+      return deployer.deploy(ClaimLib, { gas: 250000, overwrite })
     })
     .then(() => {
       deployer.link(SafeMath, PaymentLib)
 
-      return deployer.deploy(PaymentLib, { gas: 250000 })
+      return deployer.deploy(PaymentLib, { gas: 250000, overwrite })
     })
     .then(() => {
       deployer.link(SafeMath, RequestScheduleLib)
 
-      return deployer.deploy(RequestScheduleLib, { gas: 250000 })
+      return deployer.deploy(RequestScheduleLib, { gas: 250000, overwrite })
     })
     .then(() => {
       deployer.link(ClaimLib, RequestLib)
@@ -58,7 +60,7 @@ NOW DEPLOYING THE ETHEREUM ALARM CLOCK CONTRACTS...\n`)
       deployer.link(RequestScheduleLib, RequestLib)
       deployer.link(SafeMath, RequestLib)
 
-      return deployer.deploy(RequestLib, { gas: 3000000 })
+      return deployer.deploy(RequestLib, { gas: 3000000, overwrite })
     })
     .then(() => {
       deployer.link(ClaimLib, TransactionRequestCore)
@@ -70,7 +72,7 @@ NOW DEPLOYING THE ETHEREUM ALARM CLOCK CONTRACTS...\n`)
       deployer.link(RequestScheduleLib, TransactionRequestCore)
       deployer.link(SafeMath, TransactionRequestCore)
 
-      return deployer.deploy(TransactionRequestCore, { gas: 3000000 })
+      return deployer.deploy(TransactionRequestCore, { gas: 3000000, overwrite })
     })
     .then(() => {
       deployer.link(ClaimLib, RequestFactory)
@@ -80,9 +82,9 @@ NOW DEPLOYING THE ETHEREUM ALARM CLOCK CONTRACTS...\n`)
       deployer.link(PaymentLib, RequestFactory)
       deployer.link(RequestLib, RequestFactory)
       deployer.link(SafeMath, RequestFactory)
-      return deployer.deploy(RequestFactory, TransactionRequestCore.address, { gas: 1900000 })
+      return deployer.deploy(RequestFactory, TransactionRequestCore.address, { gas: 1900000, overwrite })
     })
-    .then(requestFactory => requestFactory.transferOwnership(MultiSigAddress))
+    // .then(requestFactory => requestFactory.transferOwnership(MultiSigAddress))
     .then(() => {
       deployer.link(RequestScheduleLib, BaseScheduler)
       deployer.link(PaymentLib, BaseScheduler)
@@ -148,7 +150,7 @@ NOW DEPLOYING THE ETHEREUM ALARM CLOCK CONTRACTS...\n`)
         })
 
         let balanceAfter;
-        web3.eth.getBalance("0xD593A23b099e85AE97CAB1b5a645959211B03277", (e, r) => {
+        web3.eth.getBalance("0x21ec253c9186065f05fb3f541085a185f96a16ee", (e, r) => {
           balanceAfter = r;
           fs.writeFileSync('balances', `
   balanceBefore: ${balanceBefore}

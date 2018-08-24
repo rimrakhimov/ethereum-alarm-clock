@@ -1,6 +1,7 @@
 const HDWalletProvider = require("truffle-hdwallet-provider");
 
-// 0 - 0xD593A23b099e85AE97CAB1b5a645959211B03277
+// Test Address - 0xD593A23b099e85AE97CAB1b5a645959211B03277
+// Main Address - 0x21ec253c9186065f05fb3f541085a185f96a16ee
 const mnemonic = "";
 
 module.exports = {
@@ -14,13 +15,15 @@ module.exports = {
     },
     mainnet: {
       gas: 4700000,
-      gasPrice: 1000000000, // 1 gwei
+      gasPrice: 3000000000, // 3 gwei
       provider: () => new HDWalletProvider(mnemonic, "https://mainnet.infura.io"),
       network_id: "1",
+      // overwrite: false,
     },
     kovan: {
       gas: 4700000,
-      gasPrice: 1000000000, // 1 gwei
+      gasPrice: 2800000000, // 2.8 gwei
+      // gasPrice: 1000000000, // 1 gwei
       provider: () => new HDWalletProvider(mnemonic, "https://kovan.infura.io"),
       network_id: "42"
     },

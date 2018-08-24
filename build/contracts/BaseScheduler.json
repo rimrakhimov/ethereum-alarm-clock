@@ -6486,6 +6486,73 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {
+    "1": {
+      "events": {
+        "0xc008bc849b42227c61d5063a1313ce509a6e99211bfd59e827e417be6c65c81b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "reason",
+              "type": "uint8"
+            }
+          ],
+          "name": "Aborted",
+          "type": "event"
+        },
+        "0xa761582a460180d55522f9f5fdc076390a1f48a7a62a8afbd45c1bb797948edb": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "rewardPayment",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "measuredGasConsumption",
+              "type": "uint256"
+            }
+          ],
+          "name": "Cancelled",
+          "type": "event"
+        },
+        "0xbcb472984264b16baa8cde752f2af002ea8ce06f35d81caee36625234edd2a46": {
+          "anonymous": false,
+          "inputs": [],
+          "name": "Claimed",
+          "type": "event"
+        },
+        "0x3e504bb8b225ad41f613b0c3c4205cdd752d1615b4d77cd1773417282fcfb5d9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "bounty",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "fee",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "measuredGasConsumption",
+              "type": "uint256"
+            }
+          ],
+          "name": "Executed",
+          "type": "event"
+        }
+      },
+      "links": {
+        "PaymentLib": "0xb5090c9c05cea1899d1b86c30d99f4d0d3440b05",
+        "RequestLib": "0xe6d49e39bf23ddd992c9182a0ef69ef624a44b63"
+      },
+      "address": "0x43d911ea6651d7e1e9b7b80861ed7718415d074b",
+      "transactionHash": "0xa8b21bf100400a0709de0e7e317711a5b3593838458f7550a0a259424d5924d7"
+    },
     "3": {
       "events": {
         "0xc008bc849b42227c61d5063a1313ce509a6e99211bfd59e827e417be6c65c81b": {
@@ -6681,13 +6748,13 @@
         }
       },
       "links": {
-        "PaymentLib": "0x34c05d520a362f280172f3238aee518eb5de8eb7",
-        "RequestLib": "0xcbdb7ee8d201ef4971db8466969856afe779a34f"
+        "PaymentLib": "0x0b6a7d6db9218017934f175d7023cacc1be60bf4",
+        "RequestLib": "0x35bb456bc657e07bd91d4ce9da9e85ff90233358"
       },
-      "address": "0x3d5f20745afa2ba388711ce276ada588dc10d65e",
-      "transactionHash": "0xbde801caf36b101655c58fcef137ab895a311c93479691fa6822aa6c406f308c"
+      "address": "0x161108f2e9141128c4dad5e94b3acbcee7de36a2",
+      "transactionHash": "0x1549bd95a0ccc6e9eb99505b8d2a7db1e09925f67680d08c6ca216331eab6aaa"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-23T20:54:48.890Z"
+  "updatedAt": "2018-08-24T10:18:16.405Z"
 }

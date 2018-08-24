@@ -10277,6 +10277,73 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {
+    "1": {
+      "address": "0xff5c4b7ec93dd70b862af027bb7f3d9900002c4d",
+      "links": {
+        "IterTools": "0x54c0f1adca1b6e2f2c158b9c18830bf98395ddf8",
+        "RequestLib": "0xe6d49e39bf23ddd992c9182a0ef69ef624a44b63"
+      },
+      "events": {
+        "0xc008bc849b42227c61d5063a1313ce509a6e99211bfd59e827e417be6c65c81b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "reason",
+              "type": "uint8"
+            }
+          ],
+          "name": "Aborted",
+          "type": "event"
+        },
+        "0xa761582a460180d55522f9f5fdc076390a1f48a7a62a8afbd45c1bb797948edb": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "rewardPayment",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "measuredGasConsumption",
+              "type": "uint256"
+            }
+          ],
+          "name": "Cancelled",
+          "type": "event"
+        },
+        "0xbcb472984264b16baa8cde752f2af002ea8ce06f35d81caee36625234edd2a46": {
+          "anonymous": false,
+          "inputs": [],
+          "name": "Claimed",
+          "type": "event"
+        },
+        "0x3e504bb8b225ad41f613b0c3c4205cdd752d1615b4d77cd1773417282fcfb5d9": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "bounty",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "fee",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "measuredGasConsumption",
+              "type": "uint256"
+            }
+          ],
+          "name": "Executed",
+          "type": "event"
+        }
+      },
+      "transactionHash": null
+    },
     "3": {
       "events": {
         "0xc008bc849b42227c61d5063a1313ce509a6e99211bfd59e827e417be6c65c81b": {
@@ -10569,13 +10636,13 @@
         }
       },
       "links": {
-        "IterTools": "0x4f56c5c5e40581be35d78a5f86a470fb3e0a7c1a",
-        "RequestLib": "0xcbdb7ee8d201ef4971db8466969856afe779a34f"
+        "IterTools": "0x827304164edba958ab71cd5d1291b72c09a89864",
+        "RequestLib": "0x35bb456bc657e07bd91d4ce9da9e85ff90233358"
       },
-      "address": "0xc9e11468fbbe362f7c7a122634f539678870725d",
-      "transactionHash": "0x701e629a4ed6118dc2f91ce08b308e188951846f7d803e377a85ee6c86a06517"
+      "address": "0xc3b334b3682ecd73b19003536a14f3a2efa60513",
+      "transactionHash": "0x275528b875a7f1a90ff6fc95bbc2a42073f09bebfdfcefbf421668a46145f088"
     }
   },
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-08-23T20:54:48.913Z"
+  "updatedAt": "2018-08-24T10:18:16.429Z"
 }
